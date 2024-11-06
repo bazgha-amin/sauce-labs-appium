@@ -17,7 +17,7 @@ public class ExtentReport {
     public synchronized static ExtentReports getExtentReports(){
         if(extentReports == null){
             ExtentSparkReporter spark = new ExtentSparkReporter(filePath);
-            spark.config().setDocumentTitle("Full Stack Appium Training");
+            spark.config().setDocumentTitle("Sauce Labs App");
             spark.config().setReportName("Test Execution Report");
             spark.config().setTheme(Theme.DARK);
 
