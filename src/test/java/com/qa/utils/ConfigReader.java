@@ -1,4 +1,4 @@
-package com.qa.configurationFileReader;
+package com.qa.utils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -68,5 +68,4 @@ public class ConfigReader {
         if(appiumServerEndpointURL != null ) return appiumServerEndpointURL;
         else throw new RuntimeException("appiumServerEndpointURL not specified in property file");
     }
-
 }
