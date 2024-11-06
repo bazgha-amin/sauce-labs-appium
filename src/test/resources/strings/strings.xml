@@ -1,0 +1,4 @@
+<resources>
+    <string name="error_invalid_username_and_password">Username and password do not match any user in this service.</string>
+    <string name="product_title">PRODUCTS</string>
+</resources>

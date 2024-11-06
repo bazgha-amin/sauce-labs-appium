@@ -5,7 +5,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -17,7 +16,7 @@ public class ConnectionString {
         capabilities.setCapability("appium:platformName", "Android");
         capabilities.setCapability("appium:deviceName", "emulator-5554");
         capabilities.setCapability("appium:automationName", "uiautomator2");
-        capabilities.setCapability("appium:app",System.getProperty("user.dir")+"/app/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk");
+        capabilities.setCapability("appium:app",System.getProperty("user.dir")+ "/app/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk");
         capabilities.setCapability("appium:appPackage", "com.swaglabsmobileapp");
         capabilities.setCapability("appium:appActivity", "com.swaglabsmobileapp.SplashActivity");
         capabilities.setCapability("appium:noReset", false);

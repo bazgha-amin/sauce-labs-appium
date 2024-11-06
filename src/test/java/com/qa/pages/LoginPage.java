@@ -1,3 +1,4 @@
+
 package com.qa.pages;
 
 import com.qa.base.AppDriver;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage extends AppFactory {
-    public LoginPage (){
+    public LoginPage() {
         PageFactory.initElements(new AppiumFieldDecorator(AppDriver.getDriver()), this);
     }
 
@@ -28,16 +29,23 @@ public class LoginPage extends AppFactory {
 
     By swagslabHeader = By.xpath("//android.widget.ScrollView[@content-desc=\"test-Login\"]/android.view.ViewGroup/android.widget.ImageView[1]");
 
-    public void enterUserName(String userName){
-        new WebDriverWait(AppDriver.getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(swagslabHeader));
-        userNameTextBox.sendKeys(userName);
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Username and password do not match any user in this service.\"]")
+    public WebElement errorMessage;
+
+    public void enterUserName(String userName) {
+        sendKeys(userNameTextBox, userName, "Entering username: " + userName);
     }
 
-    public void enterPassword(String password){
-        passwordTextBox.sendKeys(password);
+    public void enterPassword(String password) {
+        sendKeys(passwordTextBox, password, "Entering password: " + password);
     }
 
-    public  void clickLoginBtn(){
-        loginBtn.click();
+    public ProductPage clickLoginBtn() {
+        clickElement(loginBtn, "Clicking Login Button");
+        return new ProductPage();
+    }
+
+    public String getErrorMessage() {
+        return getAttribute(errorMessage, "text");
     }
 }
