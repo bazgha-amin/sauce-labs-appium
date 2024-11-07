@@ -48,4 +48,14 @@ public class LoginPage extends AppFactory {
     public String getErrorMessage() {
         return getAttribute(errorMessage, "text");
     }
+
+    public boolean IsFieldDisplayed(){
+        return userNameTextBox.isDisplayed();
+    }
+
+    public void login(String username, String password){
+        userNameTextBox.sendKeys(username);
+        passwordTextBox.sendKeys(password);
+        loginBtn.click();
+    }
 }

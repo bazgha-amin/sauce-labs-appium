@@ -51,7 +51,7 @@ public class LoginTest extends AppFactory {
         }
     }
 
-    @Test
+    @Test(priority=1)
     public void verifyInvalidUsername() {
         utilities.log().info("This test is used to login with invalid Username and valid Password");
         loginPage.enterUserName(loginUser.getJSONObject("invalidUser").getString("userName"));
@@ -64,7 +64,7 @@ public class LoginTest extends AppFactory {
         Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
     }
 
-    @Test
+    @Test(priority = 2)
     public void verifyInvalidPassword() {
         utilities.log().info("This test is used to login with valid Username and invalid Password");
         loginPage.enterUserName(loginUser.getJSONObject("invalidPassword").getString("userName"));
@@ -79,7 +79,7 @@ public class LoginTest extends AppFactory {
 
     }
 
-    @Test
+    @Test(priority = 3)
     public void verifyValidLogin() {
         utilities.log().info("This test is used to login with valid Username and valid Password");
         loginPage.enterUserName(loginUser.getJSONObject("validUserAndPassword").getString("userName"));
@@ -93,6 +93,13 @@ public class LoginTest extends AppFactory {
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
+    @Test(priority = 4)
+    public void verifyLogout(){
+        utilities.log().info("This test is used to logout from the app");
+        productPage.clickSideNavigationBar();
+        productPage.clickLogout();
+        Assert.assertTrue(loginPage.IsFieldDisplayed(), "Logout Failed, login page username field not displayed");
+    }
 
     @AfterTest
     public void tearDown() {
